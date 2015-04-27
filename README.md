@@ -1,8 +1,49 @@
 # Rspec::WillBeExpected
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rspec/will_be_expected`. To experiment with that code, run `bin/console` for an interactive prompt.
+Designed to prettify one-liners when you have block expectations for subject.
 
-TODO: Delete this and the text above, and describe your gem
+Creates an alias `RSpec::Core::MemoizedHelpers.will_be_expected` to
+`expect { subject }`
+
+Simple to use:
+
+```ruby
+class SimplePrinter
+  def initialize
+    print 'Printer is ready'
+  end
+end
+```
+
+This goes to
+
+```ruby
+it { will_be_expected.to output('Printer is ready').to_stdout }
+```
+
+instead of
+
+```ruby
+specify { expect { subject }.to output('Printer is ready').to_stdout }
+```
+
+For more complicated cases:
+
+```ruby
+describe UserFactory do
+  subject { UserFactory.create_user }
+
+  it { will_be_expected.to change(User.count).by(1) }
+  it { will_be_expected.to output.to_stdout }
+
+  context 'with database issues' do
+    it { will_be_expected.to output.to_stderr }
+    it { will_be_expected.to raise_error }
+  end
+end
+```
+
+This change allows to DRY up, prettify and make specs even more readable.
 
 ## Installation
 
@@ -20,19 +61,9 @@ Or install it yourself as:
 
     $ gem install rspec-will_be_expected
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/rspec-will_be_expected/fork )
+1. Fork it ( https://github.com/d-unseductable/rspec-will_be_expected/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
