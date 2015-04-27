@@ -33,7 +33,7 @@ module RSpec
 end
 
 RSpec.configure do |config|
-  config.include RSpec::WillBeExpected
+  config.include(RSpec::WillBeExpected)
 end
 
-RSpec::Core::MemoizedHelpers.include(RSpec::WillBeExpected)
+RSpec::Core::MemoizedHelpers.send(:include, RSpec::WillBeExpected)
