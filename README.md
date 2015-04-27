@@ -1,5 +1,7 @@
 # Rspec::WillBeExpected
 
+[![Build Status](https://travis-ci.org/d-unseductable/rspec-will_be_expected.svg?branch=master)](https://travis-ci.org/d-unseductable/rspec-will_be_expected)
+
 Designed to prettify one-liners when you have block expectations for subject.
 
 Creates an alias `RSpec::Core::MemoizedHelpers.will_be_expected` to
