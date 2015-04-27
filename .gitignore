@@ -10,3 +10,5 @@
 
 .ruby-version
 .ruby-gemset
+
+*.gem
