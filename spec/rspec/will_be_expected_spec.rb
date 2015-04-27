@@ -1,11 +1,15 @@
 require 'spec_helper'
 
 describe Rspec::WillBeExpected do
-  it 'has a version number' do
-    expect(Rspec::WillBeExpected::VERSION).not_to be nil
+  let(:simple_printer) do
+    Class.new do
+      def initialize
+        print 'Printer is ready'
+      end
+    end
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
-  end
+  subject { simple_printer.new }
+
+  it { will_be_expected.to output('Printer is ready').to_stdout }
 end
