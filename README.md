@@ -36,7 +36,7 @@ For more complicated cases:
 describe UserFactory do
   subject { UserFactory.create_user }
 
-  it { has.to change(User.count).by(1) }
+  it { has.to change(User, :count).by(1) }
   it { has.to output.to_stdout }
 
   context 'with database issues' do
