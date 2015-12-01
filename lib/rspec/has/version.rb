@@ -1,5 +1,5 @@
 module Rspec
-  module WillBeExpected
+  module Has
     VERSION = '0.0.1'
   end
 end

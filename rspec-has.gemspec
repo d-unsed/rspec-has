@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rspec/will_be_expected/version'
+require 'rspec/has/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rspec-will_be_expected"
-  spec.version       = Rspec::WillBeExpected::VERSION
+  spec.name          = "rspec-has"
+  spec.version       = Rspec::Has::VERSION
   spec.authors       = ["Dmitry Gritsay"]
   spec.email         = ["unseductable@gmail.com"]
 
   spec.summary       = %q{One-liner for block expectations}
   spec.description   = %q{One-liner for block expectations}
-  spec.homepage      = "https://github.com/d-unseductable/rspec-will_be_expected"
+  spec.homepage      = "https://github.com/d-unseductable/rspec-has"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"

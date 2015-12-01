@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Rspec::WillBeExpected do
+describe Rspec::Has do
   let(:simple_printer) do
     Class.new do
       def initialize
@@ -11,5 +11,5 @@ describe Rspec::WillBeExpected do
 
   subject { simple_printer.new }
 
-  it { will_be_expected.to output('Printer is ready').to_stdout }
+  it { has.to output('Printer is ready').to_stdout }
 end

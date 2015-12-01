@@ -1,8 +1,8 @@
-require 'rspec/will_be_expected/version'
+require 'rspec/has/version'
 require 'rspec/core'
 
 module RSpec
-  module WillBeExpected
+  module Has
     # Wraps the `subject` in `expect` with block to make it the target
     # of an expectation.
     # Designed to easily use expectations with blocks for one-liners.
@@ -12,12 +12,12 @@ module RSpec
     #   describe UserFactory do
     #     subject { UserFactory.create_user }
     #
-    #     it { will_be_expected.to change(User.count).by(1) }
-    #     it { will_be_expected.to output.to_stdout }
+    #     it { has.to change(User.count).by(1) }
+    #     it { has.to output.to_stdout }
     #
     #     context 'with database issues' do
-    #       it { will_be_expected.to output.to_stderr }
-    #       it { will_be_expected.to raise_error }
+    #       it { has.to output.to_stderr }
+    #       it { has.to raise_error }
     #     end
     #   end
     #
@@ -26,14 +26,14 @@ module RSpec
     # @see #is_expected
     #
     # @note This only works if you are using rspec-expectations.
-    def will_be_expected
+    def has
       expect { subject }
     end
   end
 end
 
 RSpec.configure do |config|
-  config.include(RSpec::WillBeExpected)
+  config.include(RSpec::Has)
 end
 
-RSpec::Core::MemoizedHelpers.send(:include, RSpec::WillBeExpected)
+RSpec::Core::MemoizedHelpers.send(:include, RSpec::Has)
