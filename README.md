@@ -2,7 +2,7 @@
 
 [![Dependency Status](https://gemnasium.com/d-unseductable/rspec-will_be_expected.svg)](https://gemnasium.com/d-unseductable/rspec-will_be_expected)
 [![Gem Version](https://badge.fury.io/rb/rspec-will_be_expected.svg)](http://badge.fury.io/rb/rspec-will_be_expected)
-[![Build Status](https://travis-ci.org/d-unseductable/rspec-will_be_expected.svg?branch=master)](https://travis-ci.org/d-unseductable/rspec-will_be_expected)
+[![Build Status](https://travis-ci.org/d-unseductable/rspec-has.svg)](https://travis-ci.org/d-unseductable/rspec-has)
 
 Designed to prettify one-liners when you have block expectations for subject.
 
